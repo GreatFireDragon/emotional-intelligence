@@ -6,7 +6,7 @@
   let emojis;
 
   onMount(() => {
-    scroll(animate(emojis, { y: [-800, 800] }), {
+    scroll(animate(emojis, { y: [-400, 400] }), {
       target: emojis,
     });
   });
@@ -21,10 +21,10 @@
     положительных, так и отрицательных.
   </p>
 
-  <div bind:this={emojis} id="emojis" class="absolute top-0 left-0 w-screen h-screen text-8xl">
-    <span class="rotate-12">😃</span>
-    <span class="-rotate-[20deg]">😥</span>
-    <span class=" -rotate-12">😎</span>
+  <div bind:this={emojis} id="emojis" class="absolute pointer-events-none text-8xl left-1/2">
+    <span class="rotate-12 top-[30vh] left-[1rem]">😃</span>
+    <span class="-rotate-[20deg] top-[20vh] right-[12vw]">😥</span>
+    <span class=" -rotate-12 bottom-[20vh] left-[1rem]">😎</span>
   </div>
 </section>
 
