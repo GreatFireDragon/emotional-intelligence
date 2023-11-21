@@ -25,7 +25,6 @@
     "@fontsource-variable/jura": "^5.0.17",
     "@fontsource/julius-sans-one": "^5.0.17",
     "daisyui": "^4.4.2",
-    "gsap": "^3.12.2",
     "motion": "^10.16.4"
   }
 }
