@@ -28,14 +28,12 @@
   <form method="POST" use:enhance={submitUpdateTheme}>
     <ul
       id="theme-dropdown"
-      class="z-50 dropdown-content p-2 flex flex-wrap w-[30dvw] shadow-2xl bg-base-300 rounded-box"
+      class="z-50 dropdown-content p-2 grid grid-cols-[repeat(auto-fill,minmax(100px,1fr))] w-[40dvw]
+    h-[70svh] overflow-scroll
+    shadow-2xl bg-base-300 rounded-box"
     >
-      <!-- <ul
-      id="theme-dropdown"
-      class="z-50 dropdown-content p-2 grid grid-cols-[repeat(auto-fill,minmax(100px,1fr))] w-[30dvw] shadow-2xl bg-base-300 rounded-box"
-    > -->
       {#each themes as theme}
-        <li class="min-w-[100px] flex-[1_0_auto] border border-solid border-primary">
+        <li class="min-w-[100px] flex-[1_0_auto]">
           <button
             formaction="/?/setTheme&theme={theme}&redirectTo={$page.url.pathname}"
             name="theme-dropdown"

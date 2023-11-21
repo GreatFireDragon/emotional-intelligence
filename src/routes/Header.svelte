@@ -2,6 +2,6 @@
   <h1 class="sm:text-[17rem] text-[8rem] md:text-[20rem] font-display font-bold pr-[12vw]">EQ</h1>
 
   <h2 class="text-3xl text-center sm:text-6xl md:text-7xl font-jura">
-    <span class="highlighted">Эмоциональный</span> интеллект
+    <span class="gradientText">Эмоциональный</span> интеллект
   </h2>
 </header>

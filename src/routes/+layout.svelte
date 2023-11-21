@@ -10,6 +10,7 @@
   import PagesTabs from "$lib/components/PagesTabs.svelte";
   import ProgressCircle from "$lib/components/ProgressCircle.svelte";
   import ProgressBar from "$lib/components/ProgressBar.svelte";
+  import ScrollButtons from "$lib/components/ScrollButtons.svelte";
 
   import "../app.pcss";
   import "@fontsource-variable/jura";
@@ -28,7 +29,7 @@
 </script>
 
 {#if isLoading}
-  <main class="fixed left-0 top-0 z-40 h-screen w-screen flex justify-center items-center">
+  <main class="fixed top-0 left-0 z-40 flex items-center justify-center w-screen h-screen">
     <Loader />
   </main>
 {:else}
@@ -51,6 +52,8 @@
     <!-- <ProgressCircle /> -->
     <ProgressBar />
   </div>
+
+  <ScrollButtons />
 
   <slot />
 {/if}

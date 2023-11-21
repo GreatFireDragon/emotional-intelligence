@@ -1,10 +1,8 @@
 <script>
-  // random value between 20 and 80
-  function random() {
+  function randomOffset() {
     return (Math.random() * 80 + 20).toFixed(0);
   }
 
-  // random value between 0 and 100
   function randomDelay() {
     return (Math.random() * 100 + 0).toFixed(0);
   }
@@ -17,7 +15,7 @@
 <div class="background z-[-1]">
   {#each [...Array(10).keys()] as blob}
     <span
-      style="top: {random()}%; left: {random()}%; bottom: {random()}%; right: {random()}%; transform-origin: {random()}% {random()}%;
+      style="top: {randomOffset()}%; left: {randomOffset()}%; bottom: {randomOffset()}%; right: {randomOffset()}%; transform-origin: {randomOffset()}% {randomDelay()}%;
     animation-delay: -{randomDelay()}s; animation-duration: {randomDuration()}s;"
     />
   {/each}
@@ -53,15 +51,15 @@
   }
 
   .background span:nth-child(n + 0) {
-    color: oklch(var(--p));
+    color: oklch(var(--p) / 0.5);
     box-shadow: 100vmin 0 12vmin currentColor;
   }
   .background span:nth-child(2n + 0) {
-    color: oklch(var(--s));
+    color: oklch(var(--s) / 0.5);
     box-shadow: -100vmin 0 13vmin currentColor;
   }
   .background span:nth-child(3n + 0) {
-    color: oklch(var(--a));
+    color: oklch(var(--a) / 0.5);
     box-shadow: 100vmin 0 13vmin currentColor;
   }
 </style>

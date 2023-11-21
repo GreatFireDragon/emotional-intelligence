@@ -21,6 +21,20 @@
   section > p {
     @apply text-lg sm:text-xl md:text-3xl;
   }
+
+  .gradientText {
+    @apply bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent bg-[length:300%];
+    animation: move-background 3s linear infinite alternate;
+  }
+
+  @keyframes move-background {
+    0% {
+      background-position: 0;
+    }
+    100% {
+      background-position: 100%;
+    }
+  }
 }
 
 /* SCROLLBAR */

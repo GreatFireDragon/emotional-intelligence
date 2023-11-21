@@ -1,0 +1,22 @@
+<script>
+  let scrollY = 0;
+  let windowHeight;
+
+  function scrollUpDown(e) {
+    const direction = e.target.textContent === "Up" ? -1 : 1;
+
+    document.documentElement.scrollTo({
+      top: scrollY + windowHeight * direction,
+      behavior: "smooth",
+    });
+  }
+</script>
+
+<div
+  class="fixed z-50 transition-all duration-500 join join-vertical top-2/3 right-3 opacity-10 hover:opacity-50"
+>
+  <button class="btn join-item" on:click={scrollUpDown}>Up</button>
+  <button class="btn join-item" on:click={scrollUpDown}>Down</button>
+</div>
+
+<svelte:window bind:scrollY bind:outerHeight={windowHeight} />
