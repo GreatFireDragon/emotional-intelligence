@@ -32,11 +32,13 @@
 <style>
   #emojis span {
     position: absolute;
-    opacity: 0.7;
-    transition: all 0.5s ease-in-out;
+    /* opacity: 0.7; */
+    /* transition: all 0.5s ease-in-out; */
+    /* add a shadow to the emojis */
+    text-shadow: 6px 6px 2px rgba(0, 0, 0, 0.3);
   }
 
   #emojis span:hover {
-    opacity: 1;
+    /* opacity: 1; */
   }
 </style>

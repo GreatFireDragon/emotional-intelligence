@@ -1,4 +1,6 @@
 <script>
+  import { onMount, afterUpdate } from "svelte";
+
   let scrollY = 0;
   let windowHeight;
 
@@ -10,6 +12,19 @@
       behavior: "smooth",
     });
   }
+
+  // onmount scroll to user's last position
+  onMount(() => {
+    const lastScrollPosition = localStorage.getItem("lastScrollPosition");
+    if (lastScrollPosition) {
+      window.scrollTo(0, parseInt(lastScrollPosition));
+    }
+  });
+
+  // store last scroll position
+  afterUpdate(() => {
+    localStorage.setItem("lastScrollPosition", scrollY);
+  });
 </script>
 
 <div

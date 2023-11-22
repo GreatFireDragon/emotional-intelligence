@@ -13,12 +13,13 @@
         {
           x: [windowWidth, -windowWidth],
           y: [-windowHeight, windowHeight],
-          rotate: 360,
+          rotate: [0, 360],
+          filter: ["hue-rotate(0deg) contrast(70%)", "hue-rotate(720deg) contrast(100%)"],
         },
         {
           repeat: Infinity,
           duration: 15,
-          delay: stagger((Math.random() * 3 + 3).toFixed(0)),
+          delay: stagger((Math.random() * 3).toFixed(0)),
         }
       );
 
@@ -41,28 +42,13 @@
     {#each [...Array(10).keys()] as _}
       <img
         id="star"
-        class="absolute max-w-lg"
+        class="absolute max-w-lg drop-shadow-2xl"
         style={randomStarPosition()}
-        alt="star"
-        src="assets/star.png"
+        alt="flying star"
+        src="assets/prince-small/star1.png"
       />
     {/each}
   </div>
 </section>
 
 <svelte:window bind:innerHeight={windowHeight} bind:innerWidth={windowWidth} />
-
-<style>
-  /* #star {
-    animation: float 3s ease-in-out infinite;
-  }
-
-  @keyframes float {
-    0% {
-      transform: translate(0, 0) rotate(0deg);
-    }
-    100% {
-      transform: translate(-100%, 100%) rotate(180deg);
-    }
-  } */
-</style>
