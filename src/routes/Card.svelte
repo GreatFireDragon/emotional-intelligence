@@ -1,34 +1,35 @@
 <script>
   import { animate, timeline } from "motion";
 
-  let cardFront;
-  let cardBack;
-  let curCard = 0;
-
-  function nextCard() {
-    if (curCard === questionsArray.length) return;
-    curCard = curCard + 1;
-  }
+  import { lazyLoad } from "$lib/lazyLoad";
 
   const questionsArray = [
-    "Когда у вас происходит смена эмоций, чувствуете ли вы, как меняется ваше состояние?",
-    "Ваши эмоции сопровождаются откликами, которые вы испытываете в животе, груди, горле (например, ком в горле, легкость в груди, мурашки по спине и пр.)?",
-    "Вы можете испытать интенсивные  чувства ?",
-    "Вы обращаете внимание на свои эмоции? Они влияют на принятие решений?",
-    "Вы скрываете свои эмоции?",
+    {
+      img: "assets/hank-brb.png",
+      h2: "Header",
+      p: 'Когда у вас происходит смена эмоций, <span class="gradientText">чувствуете</span> ли вы, как меняется ваше состояние?',
+    },
+    {
+      img: "assets/the-office-sad-small.gif",
+      h2: "Header",
+      p: 'Ваши эмоции сопровождаются  <span class="gradientText">откликами</span> (например, ком в горле, легкость в груди, мурашки по спине)?',
+    },
+    {
+      img: "assets/rage-anger-small.gif",
+      h2: "Header",
+      p: "Вы испытываете <span class='gradientText'>интенсивные</span> чувства?",
+    },
+    {
+      img: "assets/hank-brb.png",
+      h2: "Header",
+      p: "Вы обращаете внимание на свои <span class='gradientText'>эмоции</span>? Они влияют на принятие решений?",
+    },
+    {
+      img: "assets/hank-brb.png",
+      h2: "Header",
+      p: "Вы <span class='gradientText'>скрываете</span> свои эмоции?",
+    },
   ];
-
-  function handleClickNext() {
-    timeline(
-      [
-        [".card-front", { transform: ["rotateY(0deg)", "rotateY(180deg)"] }],
-        [".card-back", { transform: ["rotateY(-180deg)", "rotateY(0deg)"] }, { at: "<" }],
-      ],
-      {
-        defaultOptions: { duration: 0.8 },
-      }
-    );
-  }
 </script>
 
 <section>
@@ -37,51 +38,30 @@
     <span class="gradientText"> понимаете </span>
     себя и свои эмоции!
   </p>
+</section>
 
-  <div class="divider divider-neutral">Нажмите</div>
-
-  <div class="stack">
-    <div class="text-center border border-base-content card w-36 bg-base-100">
-      <div class="card-body">A</div>
+{#each questionsArray as question, index}
+  <section>
+    <div class="stack">
+      <div class="card w-96 bg-base-200 shadow-xl shadow-base-300">
+        <div class="card-body">
+          <h2 class="card-title flex justify-center">{index + 1}.</h2>
+          <p>
+            {@html question.p}
+          </p>
+        </div>
+        <figure>
+          <img class="w-[100%]" use:lazyLoad={question.img} loading="lazy" alt={question.h2} />
+        </figure>
+      </div>
     </div>
-    <div class="text-center border border-base-content card w-36 bg-base-100">
-      <div class="card-body">B</div>
-    </div>
-    <div class="text-center border border-base-content card w-36 bg-base-100">
-      <div class="card-body">C</div>
-    </div>
-  </div>
+  </section>
+{/each}
 
-  <div class="divider divider-neutral">Нажмите</div>
-
+<section>
   <p>
     Если что-то из этого вам незнакомо, то ваши эмоции либо <span class="gradientText">снижены</span
     >, либо <span class="gradientText"> выключены</span>. Нужно учиться принимать свои эмоции и
     правильно выражать их!
   </p>
 </section>
-
-<style>
-  .card {
-    position: relative;
-    perspective: 1000px;
-  }
-
-  .card-front,
-  .card-back {
-    width: 100%;
-    height: max-content;
-    position: absolute;
-    backface-visibility: hidden;
-    transform-style: preserve-3d;
-  }
-
-  .card-back {
-    transform: rotateY(-180deg);
-  }
-
-  .card-front,
-  .card-back {
-    transition: transform 0.8s;
-  }
-</style>

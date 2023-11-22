@@ -5,10 +5,25 @@
   let windowHeight;
 
   function scrollUpDown(e) {
-    const direction = e.target.textContent === "Up" ? -1 : 1;
+    const value = e.target.textContent;
+
+    let newScroll;
+    switch (value) {
+      case "👆":
+        newScroll = 0;
+        break;
+      case "Up":
+        newScroll = scrollY - windowHeight;
+        break;
+      case "Down":
+        newScroll = scrollY + windowHeight;
+        break;
+      default:
+        break;
+    }
 
     document.documentElement.scrollTo({
-      top: scrollY + windowHeight * direction,
+      top: newScroll,
       behavior: "smooth",
     });
   }
@@ -27,6 +42,11 @@
   });
 </script>
 
+<div
+  class="fixed z-50 transition-all duration-500 join join-vertical top-10 right-3 opacity-10 hover:opacity-50"
+>
+  <button class="btn join-item" on:click={scrollUpDown}>👆</button>
+</div>
 <div
   class="fixed z-50 transition-all duration-500 join join-vertical top-2/3 right-3 opacity-10 hover:opacity-50"
 >
