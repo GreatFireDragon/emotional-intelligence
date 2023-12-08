@@ -4,8 +4,10 @@ const config = {
 
   theme: {
     fontFamily: {
-      sans: ["Jura", "sans-serif"],
-      display: ["Julius Sans One", "sans-serif"],
+      // sans: ["Jura", "sans-serif"],
+      sans: ["OpenDyslexic", "sans-serif"],
+      // display: ["Julius Sans One", "sans-serif"],
+      display: ["OpenDyslexic", "sans-serif"],
     },
     width: {
       screen: "100svw",

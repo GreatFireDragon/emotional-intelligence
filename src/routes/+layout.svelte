@@ -38,7 +38,7 @@
   <span
     transition:slide
     class={"fixed z-50 top-4 left-3 transition-all duration-1000 focus:opacity-100 active:opacity-100 " +
-      (!scrolled ? "opacity-10" : "left-32 ")}
+      (!scrolled ? "opacity-0 pointer-events-none" : "left-1/2 ")}
   >
     <ThemeChanger />
   </span>

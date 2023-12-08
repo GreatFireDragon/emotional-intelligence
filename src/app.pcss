@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: "OpenDyslexic";
+  src: url("/assets/fonts/OpenDyslexic-Regular.otf") format("opentype");
+}
+
 @layer base {
   h1,
   h2,
@@ -23,9 +28,13 @@
   }
 
   .gradientText {
-    @apply bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent bg-[length:300%];
+    @apply bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text stroke-primary-content text-transparent bg-[length:300%];
     animation: move-background 3s linear infinite alternate;
-    -webkit-text-stroke: 1px oklch((var(--a)));
+    /* -webkit-text-stroke: 1px oklch(var(--p)); */
+
+    /* text-stroke: 1px black; */
+    /* text-shadow: 0 0 1rem oklch(var(--a)); */
+    /* text-shadow: 3px 3px 3px oklch(var(--pc) / 0.2); */
   }
 
   @keyframes move-background {
@@ -65,3 +74,5 @@ html::-webkit-scrollbar-thumb:hover {
 html::-webkit-scrollbar-thumb:active {
   background-color: oklch(var(--p));
 }
+
+/*  */

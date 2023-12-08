@@ -1,7 +1,9 @@
 <script>
-  import FlippingCard from "./FlippingCard.svelte";
+  import { animate, timeline } from "motion";
 
-  const dataArr = [
+  import { lazyLoad } from "$lib/lazyLoad";
+
+  const questionsArray = [
     {
       img: "assets/hank-brb.png",
       h2: "Header",
@@ -31,32 +33,35 @@
 </script>
 
 <section>
-  <h2>
+  <p>
     Проведем пару тестов на то, как хорошо вы
     <span class="gradientText"> понимаете </span>
     себя и свои эмоции!
-  </h2>
+  </p>
 </section>
 
-<section>
-  <FlippingCard {dataArr} />
-</section>
+{#each questionsArray as question, index}
+  <section>
+    <div class="stack">
+      <div class="card w-96 bg-base-200 shadow-xl shadow-base-300">
+        <div class="card-body">
+          <h2 class="card-title flex justify-center">{index + 1}.</h2>
+          <p>
+            {@html question.p}
+          </p>
+        </div>
+        <figure>
+          <img class="w-[100%]" use:lazyLoad={question.img} loading="lazy" alt={question.h2} />
+        </figure>
+      </div>
+    </div>
+  </section>
+{/each}
 
 <section>
-  <h2>
+  <p>
     Если что-то из этого вам незнакомо, то ваши эмоции либо <span class="gradientText">снижены</span
     >, либо <span class="gradientText"> выключены</span>. Нужно учиться принимать свои эмоции и
     правильно выражать их!
-  </h2>
+  </p>
 </section>
-
-<style>
-  .card {
-    transition: transform 1s;
-    transform-style: preserve-3d;
-  }
-
-  /* .is-flipped {
-    transform: rotateY(-180deg);
-  } */
-</style>

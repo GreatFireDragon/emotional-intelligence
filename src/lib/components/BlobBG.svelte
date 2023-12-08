@@ -51,15 +51,15 @@
   }
 
   .background span:nth-child(n + 0) {
-    color: oklch(var(--p) / 0.5);
+    color: oklch(var(--p) / 1);
     box-shadow: 100vmin 0 12vmin currentColor;
   }
   .background span:nth-child(2n + 0) {
-    color: oklch(var(--s) / 0.5);
+    color: oklch(var(--s) / 1);
     box-shadow: -100vmin 0 13vmin currentColor;
   }
   .background span:nth-child(3n + 0) {
-    color: oklch(var(--a) / 0.5);
+    color: oklch(var(--a) / 1);
     box-shadow: 100vmin 0 13vmin currentColor;
   }
 </style>
