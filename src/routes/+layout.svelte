@@ -1,6 +1,6 @@
 <script>
-  import { onMount } from "svelte";
   import { slide } from "svelte/transition";
+  import { onMount } from "svelte";
 
   import Loader from "$lib/components/Loader.svelte";
 

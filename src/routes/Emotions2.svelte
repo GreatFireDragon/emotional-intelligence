@@ -1,6 +1,6 @@
 <script>
   import { onMount } from "svelte";
-  import { inView, animate, stagger, spring } from "motion";
+  import { inView, animate, timeline, stagger, spring } from "motion";
 
   let container;
   let windowHeight;
@@ -19,23 +19,21 @@
         {
           repeat: Infinity,
           duration: 15,
-          delay: stagger(Math.random().toFixed(0)),
+
+          delay: stagger(1),
         }
       );
-
       return () => {};
     });
   });
 
   function handleStarClick(e) {
-    animate(
-      e.target,
-      { scale: [null, 1.5, 1] },
-      {
-        duration: 0.5,
-        easing: spring(),
-      }
-    );
+    timeline([[e.target, { scale: [1, 1.2], rotate: [0, 120] }]], {
+      defaultOptions: {
+        duration: 1,
+        easing: spring({ velocity: 50 }),
+      },
+    });
   }
 </script>
 
@@ -48,14 +46,14 @@
   <!-- <img class="drop-shadow-lg aspect-square max-w-xs" src="assets/emotions-circle.png" alt="" /> -->
 
   <div class="absolute">
-    {#each [...Array(15).keys()] as _}
+    {#each [...Array(10).keys()] as _}
       <!-- svelte-ignore a11y-click-events-have-key-events -->
       <!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
       <img
         on:click={handleStarClick}
         id="star"
-        class="absolute max-w-lg z-[20] drop-shadow-2xl"
-        style={`left: ${Math.random().toFixed(3) * 150}vw;`}
+        class="absolute max-w-lg z-[20] drop-shadow-2xl cursor-pointer select-none"
+        style={`left: ${Math.random().toFixed(3) * 100 - 30}vw;`}
         alt=""
         src="assets/prince-small/star1.png"
       />

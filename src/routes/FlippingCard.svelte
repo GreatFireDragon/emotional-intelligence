@@ -3,6 +3,9 @@
 
   export let dataArr = [];
 
+  export let bgColor = "bg-gradient-to-br from-secondary to-accent";
+  export let textColor = "text-error-content";
+
   let flipCard;
   let frontText;
 
@@ -29,21 +32,24 @@
       frontText.style.transform = "rotateY(-180deg)";
     }
   }
+
+  $: flipCardClasses = `${bgColor} ${textColor} card card-compact transform-gpu max-w-md sm:max-w-lg md:max-w-xl w-full`;
 </script>
 
-<button
-  bind:this={flipCard}
-  on:click={handleClick}
-  class="card card-compact bg-teal-50 transform-gpu text-primary-content"
->
-  <div bind:this={frontText} class="card-body text-center" style="transform: rotateY(0deg);">
+<button bind:this={flipCard} on:click={handleClick} class={flipCardClasses}>
+  <div
+    bind:this={frontText}
+    class="card-body text-center flex justify-center"
+    style="transform: rotateY(0deg);"
+  >
     <!-- <h2 class="card-title">Card title!</h2> -->
     <p contenteditable="false" class="text-xl">
       {@html curData.p}
     </p>
     <figure>
       <img
-        class=" w-[100%] object-cover rounded-lg w-80"
+        class="aspect-video w-[100%] object-fill rounded-lg w-80"
+        loading="lazy"
         src={curData.img}
         alt={curData.img.replace(/\.[^/.]+$/, "")}
       />

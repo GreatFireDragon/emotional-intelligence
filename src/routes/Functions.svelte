@@ -20,5 +20,5 @@
 <section>
   <h2>Функции эмоций</h2>
 
-  <FlippingCard {dataArr} />
+  <FlippingCard bgColor="bg-primary" textColor="text-primary-content" {dataArr} />
 </section>

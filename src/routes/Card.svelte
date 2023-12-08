@@ -30,15 +30,13 @@
   ];
 </script>
 
-<section>
+<section class="flex items-center">
   <h2>
     Проведем пару тестов на то, как хорошо вы
     <span class="gradientText"> понимаете </span>
     себя и свои эмоции!
   </h2>
-</section>
 
-<section>
   <FlippingCard {dataArr} />
 </section>
 
@@ -49,14 +47,3 @@
     правильно выражать их!
   </h2>
 </section>
-
-<style>
-  .card {
-    transition: transform 1s;
-    transform-style: preserve-3d;
-  }
-
-  /* .is-flipped {
-    transform: rotateY(-180deg);
-  } */
-</style>
