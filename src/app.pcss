@@ -14,17 +14,24 @@
   h4,
   h5,
   h6 {
-    @apply font-display font-black;
+    @apply px-3 font-display font-black;
+  }
+
+  header {
+    @apply box-content;
   }
 
   section {
-    @apply container relative h-screen px-3 py-4 snap-center snap-always flex flex-col justify-center items-center  gap-3 md:py-16 select-none;
+    @apply box-content  overflow-hidden container relative h-screen  py-4 snap-center snap-always flex flex-col justify-center items-center  gap-3 md:py-16 select-none;
   }
-  section > h2 {
-    @apply text-4xl sm:text-5xl md:text-7xl  text-center;
+  h2 {
+    @apply text-2xl xs:text-4xl sm:text-5xl md:text-7xl  text-center;
   }
-  section > p {
-    @apply text-lg sm:text-xl md:text-3xl;
+  h3 {
+    @apply text-lg xs:text-xl sm:text-2xl md:text-3xl font-normal;
+  }
+  p {
+    @apply text-sm xs:text-lg sm:text-xl md:text-3xl;
   }
 
   .gradientText {

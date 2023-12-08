@@ -10,10 +10,8 @@
   onMount(() => {
     inView(intelligence, ({ target }) => {
       openned = true;
-      console.log("opened");
 
       return () => {
-        console.log("closed");
         openned = false;
       };
     });

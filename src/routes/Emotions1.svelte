@@ -15,17 +15,17 @@
 <section>
   <h2>Emotions</h2>
 
-  <p class="">
+  <h3 class="">
     Каждый человек на свете испытывает эмоции. Эмоции возникают в ответ на <span
       class="gradientText">воздействие</span
     > внешних или внутренних раздражителей, проявляясь в форме различных эмоциональных переживаний как
     положительных, так и отрицательных.
-  </p>
+  </h3>
 
   <div bind:this={emojis} id="emojis" class="absolute pointer-events-none z-[20] text-8xl left-1/2">
-    <span class="rotate-12 top-[30vh] left-[1vw]">😃</span>
-    <span class="-rotate-[20deg] top-[20vh] right-[12vw]">😥</span>
-    <span class=" -rotate-12 bottom-[20vh] left-[1vw]">😎</span>
+    <span class="rotate-12 top-[28vh] left-[1vw] xs:top-[30vh] xs:left-[1vw]">😃</span>
+    <span class="-rotate-[20deg] top-[30vh] right-[12vw] xs:top-[20vh] xs:right-[12vw]">😥</span>
+    <span class=" -rotate-12 bottom-[35vh] xs:bottom-[20vh] xs:left-[1vw]">😎</span>
   </div>
 </section>
 

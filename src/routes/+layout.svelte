@@ -19,7 +19,9 @@
   // LOADING
   let isLoading = true;
   onMount(() => {
-    isLoading = false;
+    setTimeout(() => {
+      isLoading = false;
+    }, 3000);
   });
 
   // Hide header elements on scroll

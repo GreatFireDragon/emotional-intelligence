@@ -3,21 +3,17 @@
   import FloatingStars from "../lib/components/FloatingStars.svelte";
   import { animate, inView, spring, timeline } from "motion";
 
+  let windowW;
+
   let moon;
   let fox;
   onMount(() => {
     inView(moon.parentNode, ({ target }) => {
-      animate(fox, { x: [300, -600] }, { duration: 10, repeat: Infinity });
+      animate(fox, { x: [windowW, -windowW * 1.5] }, { duration: 10, repeat: Infinity, delay: -2 });
       animate(
         moon,
-        {
-          rotate: [0, 360],
-        },
-        {
-          repeat: Infinity,
-          duration: 10,
-          direction: "alternate-reverse",
-        }
+        { rotate: [0, 360] },
+        { repeat: Infinity, duration: 10, direction: "alternate-reverse" }
       );
 
       // timeline(
@@ -38,10 +34,12 @@
   });
 </script>
 
+<svelte:window bind:innerWidth={windowW} />
+
 <section class="overflow-hidden">
   <h2><span class="gradientText">Александра Романова</span></h2>
   <p class="text-center">Проект <span class="gradientText">"Эмоциональный интеллект"</span></p>
-  <h2 class="gradientText">&copy;2023</h2>
+  <h2 class="gradientText">2024</h2>
 
   <div class="relative pointer-events-none text-8xl">
     <img

@@ -11,7 +11,8 @@
     <img
       src="assets/prince-big/planet-boy-fox.png"
       alt=""
-      class="absolute max-w-sm sm:msx-w-lg -bottom-[20svh] z-[3] -translate-x-1/2 left-1/2"
+      loading="lazy"
+      class="absolute max-w-xs sm:msx-w-lg xs:-bottom-[20svh] -bottom-[25svh] z-[3] -translate-x-1/2 left-1/2"
     />
   </div>
 </header>

@@ -17,6 +17,9 @@ const config = {
     },
 
     extend: {
+      screens: {
+        xs: "400px",
+      },
       fontSize: {
         heading: ["5rem", { lineHeight: "1" }],
         main: ["3rem", { lineHeight: "1" }],

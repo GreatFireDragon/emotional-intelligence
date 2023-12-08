@@ -9,7 +9,7 @@
 
   let starContainer;
   onMount(() => {
-    const section = starContainer.parentNode;
+    const section = starContainer?.parentNode;
     inView(
       section,
       () => {

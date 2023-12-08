@@ -31,7 +31,7 @@
     {#each data as item, index}
       <div class="collapse collapse-arrow join-item border border-base-300">
         <input type="radio" name="my-accordion-4" checked="checked" />
-        <div class="collapse-title text-xl font-medium">
+        <div class="collapse-title text-base xs:text-lg">
           {index + 1}. {@html item.title}
         </div>
         <div class="collapse-content flex justify-center">

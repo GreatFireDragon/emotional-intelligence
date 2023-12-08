@@ -1,11 +1,29 @@
 <script>
   import { animate } from "motion";
+  import { onMount } from "svelte";
 
   /** @type {{ p: string, img: string }} */
   export let dataArr = []; // [{p: 'string', img: 'string'}]
 
   export let bgColor = "";
   export let textColor = "text-error-content";
+
+  let tooltip;
+  onMount(() => {
+    const images = dataArr?.map((d) => {
+      if (!d?.img) return;
+      const img = new Image();
+      img.src = d?.img;
+    });
+
+    const userKnowHowToClick = localStorage.getItem("flipCard");
+    if (userKnowHowToClick === "true") {
+      tooltip.classList.remove("tooltip-open");
+      tooltip.classList.remove("tooltip");
+      tooltip.classList.remove("tooltip-primary");
+      tooltip.classList.remove("tooltip-top");
+    }
+  });
 
   let flipCard;
   let frontText;
@@ -14,6 +32,12 @@
 
   let clicks = 0;
   function handleClick() {
+    localStorage.setItem("flipCard", true);
+    tooltip.classList.remove("tooltip-open");
+    tooltip.classList.remove("tooltip");
+    tooltip.classList.remove("tooltip-primary");
+    tooltip.classList.remove("tooltip-top");
+
     clicks++;
     curData = dataArr[clicks % dataArr.length];
 
@@ -34,45 +58,47 @@
     }
   }
 
-  // prelaod images
-  const images = dataArr.map((d) => d.img);
-  $: {
-    for (let i = 0; i < images.length; i++) {
-      const img = new Image();
-      img.src = images[i];
-    }
-  }
-
   $: flipCardClasses = `${bgColor} ${textColor} card card-compact transform-gpu max-w-md sm:max-w-lg md:max-w-xl w-full`;
 </script>
 
-<button id="flipCardContainer" bind:this={flipCard} on:click={handleClick} class={flipCardClasses}>
-  <div
-    bind:this={frontText}
-    class="card-body text-center flex justify-center"
-    style="transform: rotateY(0deg);"
+<div
+  bind:this={tooltip}
+  class="tooltip tooltip-primary tooltip-open tooltip-top"
+  data-tip="нажми на меня"
+>
+  <button
+    id="flipCardContainer"
+    bind:this={flipCard}
+    on:click={handleClick}
+    class={flipCardClasses}
   >
-    <!-- <h2 class="card-title">Card title!</h2> -->
-    <p contenteditable="false" class="text-xl">
-      {@html curData?.p}
-    </p>
+    <div
+      bind:this={frontText}
+      class="card-body text-center flex justify-center"
+      style="transform: rotateY(0deg);"
+    >
+      <!-- <h2 class="card-title">Card title!</h2> -->
+      <p contenteditable="false" class="text-xl">
+        {@html curData?.p}
+      </p>
 
-    {#if curData?.img}
-      <img
-        class="aspect-video w-[100%] object-fill rounded-lg w-80"
-        loading="eager"
-        src={curData?.img}
-        alt={curData?.img.replace(/\.[^/.]+$/, "")}
-      />
-    {/if}
+      {#if curData?.img}
+        <img
+          class="aspect-video w-[100%] object-fill rounded-lg w-80"
+          loading="eager"
+          src={curData?.img}
+          alt={curData?.img.replace(/\.[^/.]+$/, "")}
+        />
+      {/if}
 
-    {#if curData?.svg}
-      <svg width="100%" height="100%" viewBox="0 0 55 55">
-        {@html curData?.svg}
-      </svg>
-    {/if}
-  </div>
-</button>
+      {#if curData?.svg}
+        <svg width="100%" height="100%" viewBox="0 0 55 55">
+          {@html curData?.svg}
+        </svg>
+      {/if}
+    </div>
+  </button>
+</div>
 
 <style>
   .card {
