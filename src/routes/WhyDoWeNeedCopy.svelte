@@ -1,5 +1,4 @@
 <script>
-  import FlipCard from "./FlipCard.svelte";
   import FlippingCard from "./FlippingCard.svelte";
 
   const dataArr = [

@@ -8,21 +8,32 @@
   onMount(() => {
     inView(moon.parentNode, ({ target }) => {
       animate(fox, { x: [300, -600] }, { duration: 10, repeat: Infinity });
-
-      timeline(
-        [
-          [moon, { rotate: [0, 120] }],
-          [moon, { rotate: [120, 240] }],
-          [moon, { rotate: [240, 360] }],
-        ],
+      animate(
+        moon,
         {
-          defaultOptions: {
-            easing: spring({ velocity: 0, damping: 6 }),
-            repeat: Infinity,
-            // direction: "normal",
-          },
+          rotate: [0, 360],
+        },
+        {
+          repeat: Infinity,
+          duration: 10,
+          direction: "alternate-reverse",
         }
       );
+
+      // timeline(
+      //   [
+      //     [moon, { rotate: [0, 120] }],
+      //     [moon, { rotate: [120, 240] }],
+      //     [moon, { rotate: [240, 360] }],
+      //   ],
+      //   {
+      //     defaultOptions: {
+      //       easing: spring({ velocity: 0, damping: 6 }),
+      //       repeat: Infinity,
+      //       // direction: "normal",
+      //     },
+      //   }
+      // );
     });
   });
 </script>
