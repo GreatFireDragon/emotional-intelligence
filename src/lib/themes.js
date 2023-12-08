@@ -1,5 +1,5 @@
 const themes = [
-  "light",
+  // "light",
   "dark",
   "cupcake",
   "bumblebee",

@@ -92,7 +92,7 @@
       {/if}
 
       {#if curData?.svg}
-        <svg width="100%" height="100%" viewBox="0 0 55 55">
+        <svg width="100%" height="100%" viewBox="0 0 55 55" fill="oklch(var(--n))">
           {@html curData?.svg}
         </svg>
       {/if}

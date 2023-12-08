@@ -16,12 +16,16 @@
   import "@fontsource-variable/jura";
   import "@fontsource/julius-sans-one";
 
+  export let data;
+
   // LOADING
   let isLoading = true;
   onMount(() => {
+    const waitingTime = data.theme === undefined ? 5000 : 1;
+
     setTimeout(() => {
       isLoading = false;
-    }, 3000);
+    }, waitingTime);
   });
 
   // Hide header elements on scroll

@@ -22,7 +22,11 @@
     положительных, так и отрицательных.
   </h3>
 
-  <div bind:this={emojis} id="emojis" class="absolute pointer-events-none z-[20] text-8xl left-1/2">
+  <div
+    bind:this={emojis}
+    id="emojis"
+    class="absolute pointer-events-none z-[20] text-6xl xs:text-7xl left-1/2"
+  >
     <span class="rotate-12 top-[28vh] left-[1vw] xs:top-[30vh] xs:left-[1vw]">😃</span>
     <span class="-rotate-[20deg] top-[30vh] right-[12vw] xs:top-[20vh] xs:right-[12vw]">😥</span>
     <span class=" -rotate-12 bottom-[35vh] xs:bottom-[20vh] xs:left-[1vw]">😎</span>
@@ -34,11 +38,6 @@
     position: absolute;
     /* opacity: 0.7; */
     /* transition: all 0.5s ease-in-out; */
-    /* add a shadow to the emojis */
     text-shadow: 6px 6px 2px rgba(0, 0, 0, 0.3);
-  }
-
-  #emojis span:hover {
-    /* opacity: 1; */
   }
 </style>
