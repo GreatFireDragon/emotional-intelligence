@@ -7,7 +7,7 @@
     <span class="gradientText">Эмоциональный</span> интеллект
   </h2>
 
-  <div class="pointer-events-none text-8xl">
+  <div class="pointer-events-none min-w-fit">
     <img
       src="assets/prince-big/planet-boy-fox.png"
       alt=""

@@ -1,8 +1,4 @@
 <script>
-  import Skills from "./Skills.svelte";
-
-  import Intelligence from "./Intelligence.svelte";
-
   import Emotions3 from "./Emotions3.svelte";
   import Emotions2 from "./Emotions2.svelte";
   import Emotions1 from "./Emotions1.svelte";
@@ -15,6 +11,8 @@
   import Credits from "./Credits.svelte";
   import FlippingCard from "./FlippingCard.svelte";
   import PositiveConflicts from "./PositiveConflicts.svelte";
+  import Skills from "./Skills.svelte";
+  import Intelligence from "./Intelligence.svelte";
 </script>
 
 <Header />

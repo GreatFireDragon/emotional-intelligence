@@ -10,12 +10,6 @@
 
   let tooltip;
   onMount(() => {
-    const images = dataArr?.map((d) => {
-      if (!d?.img) return;
-      const img = new Image();
-      img.src = d?.img;
-    });
-
     const userKnowHowToClick = localStorage.getItem("flipCard");
     if (userKnowHowToClick === "true") {
       tooltip.classList.remove("tooltip-open");
@@ -58,6 +52,7 @@
     }
   }
 
+  let windowHeight = 0;
   onMount(() => {
     inView(
       "#flipCardContainer",
@@ -68,12 +63,14 @@
           img.src = d?.img;
         });
       },
-      { margin: "0px 1000px 0px 0px" }
+      { margin: `${windowHeight}px 0px  0px 0px` }
     );
   });
 
   $: flipCardClasses = `${bgColor} ${textColor} card card-compact transform-gpu max-w-md sm:max-w-lg md:max-w-xl w-full`;
 </script>
+
+<svelte:window bind:innerHeight={windowHeight} />
 
 <div
   bind:this={tooltip}

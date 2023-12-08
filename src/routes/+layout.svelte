@@ -3,7 +3,7 @@
   import { onMount } from "svelte";
 
   import Loader from "$lib/components/Loader.svelte";
-
+  import "../app.pcss";
   import BlobBG from "$lib/components/BlobBG.svelte";
   import TSParticles from "$lib/components/TSParticles.svelte";
   import ThemeChanger from "$lib/components/ThemeChanger.svelte";
@@ -12,11 +12,10 @@
   import ProgressBar from "$lib/components/ProgressBar.svelte";
   import ScrollButtons from "$lib/components/ScrollButtons.svelte";
 
-  import "../app.pcss";
-  import "@fontsource-variable/jura";
-  import "@fontsource/julius-sans-one";
+  // import "@fontsource-variable/jura";
+  // import "@fontsource/julius-sans-one";
 
-  export let data;
+  // export let data;
   // USER'S INTERNET SPEED
   let speed = 0;
 
@@ -27,7 +26,7 @@
     if (speed) {
       console.log("User's connection is ", speed, "Mb/s");
     }
-    const waitingTime = 1000;
+    const waitingTime = 1;
     console.log(waitingTime * (10 / speed));
 
     setTimeout(

@@ -1,6 +1,6 @@
 <script>
   import { onMount } from "svelte";
-  import FloatingStars from "../lib/components/FloatingStars.svelte";
+  import FloatingStars from "$lib/components/FloatingStars.svelte";
   import { animate, inView, spring, timeline } from "motion";
 
   let windowW;
@@ -53,7 +53,6 @@
       bind:this={fox}
       src="assets/prince-small/fox-running.png"
       alt=""
-      loading="lazy"
       class="absolute max-w-xl z-[3] rotate-6 bottom-[30svh] drop-shadow-lg"
     />
   </div>
