@@ -17,15 +17,25 @@
   import "@fontsource/julius-sans-one";
 
   export let data;
+  // USER'S INTERNET SPEED
+  let speed = 0;
 
   // LOADING
   let isLoading = true;
   onMount(() => {
-    const waitingTime = data.theme === undefined ? 5000 : 1;
+    speed = window.navigator.connection?.downlink;
+    if (speed) {
+      console.log("User's connection is ", speed, "Mb/s");
+    }
+    const waitingTime = 1000;
+    console.log(waitingTime * (10 / speed));
 
-    setTimeout(() => {
-      isLoading = false;
-    }, waitingTime);
+    setTimeout(
+      () => {
+        isLoading = false;
+      },
+      waitingTime * (10 / speed)
+    );
   });
 
   // Hide header elements on scroll

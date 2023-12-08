@@ -5,11 +5,11 @@
 
   let emojis;
 
-  onMount(() => {
-    scroll(animate(emojis, { y: [-300, 300] }), {
-      target: emojis,
-    });
-  });
+  // onMount(() => {
+  //   scroll(animate(emojis, { y: [-300, 300] }), {
+  //     target: emojis,
+  //   });
+  // });
 </script>
 
 <section>

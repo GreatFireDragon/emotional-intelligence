@@ -46,12 +46,14 @@
       bind:this={moon}
       src="assets/moon-realistic2.png"
       alt=""
+      loading="lazy"
       class="absolute max-w-xl top-[10svh] -right-[120vw] z-[3] blur-[2px] drop-shadow-lg"
     />
     <img
       bind:this={fox}
       src="assets/prince-small/fox-running.png"
       alt=""
+      loading="lazy"
       class="absolute max-w-xl z-[3] rotate-6 bottom-[30svh] drop-shadow-lg"
     />
   </div>

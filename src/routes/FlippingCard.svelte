@@ -1,5 +1,5 @@
 <script>
-  import { animate } from "motion";
+  import { animate, inView } from "motion";
   import { onMount } from "svelte";
 
   /** @type {{ p: string, img: string }} */
@@ -58,6 +58,20 @@
     }
   }
 
+  onMount(() => {
+    inView(
+      "#flipCardContainer",
+      () => {
+        dataArr?.map((d) => {
+          if (!d?.img) return;
+          const img = new Image();
+          img.src = d?.img;
+        });
+      },
+      { margin: "0px 1000px 0px 0px" }
+    );
+  });
+
   $: flipCardClasses = `${bgColor} ${textColor} card card-compact transform-gpu max-w-md sm:max-w-lg md:max-w-xl w-full`;
 </script>
 
@@ -85,7 +99,7 @@
       {#if curData?.img}
         <img
           class="aspect-video w-[100%] object-fill rounded-lg w-80"
-          loading="eager"
+          loading="lazy"
           src={curData?.img}
           alt={curData?.img.replace(/\.[^/.]+$/, "")}
         />
