@@ -56,13 +56,21 @@
     <p contenteditable="false" class="text-xl">
       {@html curData?.p}
     </p>
+
     {#if curData?.img}
       <img
         class="aspect-video w-[100%] object-fill rounded-lg w-80"
         loading="eager"
         src={curData?.img}
         alt={curData?.img.replace(/\.[^/.]+$/, "")}
-      />{/if}
+      />
+    {/if}
+
+    {#if curData?.svg}
+      <svg width="100%" height="100%" viewBox="0 0 55 55">
+        {@html curData?.svg}
+      </svg>
+    {/if}
   </div>
 </button>
 
