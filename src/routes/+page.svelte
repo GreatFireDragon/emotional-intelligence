@@ -33,4 +33,10 @@
 <Skills />
 <PositiveConflicts />
 
+<section>
+  <h2>
+    Развивая эти навыки - мы развиваем <span class="gradientText">эмоциональный интеллект</span>
+  </h2>
+</section>
+
 <Credits />

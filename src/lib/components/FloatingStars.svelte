@@ -9,12 +9,14 @@
 
   let starContainer;
   onMount(() => {
+    const section = starContainer.parentNode;
     inView(
-      starContainer,
+      section,
       () => {
         animate(
           "#star",
           {
+            style: `left: ${Math.random().toFixed(3) * 80}vw;`,
             x: [windowWidth, -windowWidth],
             y: [0, windowHeight],
             rotate: [0, 360],
@@ -24,7 +26,7 @@
             repeat: Infinity,
             duration: 10,
             easing: "ease-in",
-            delay: stagger(2),
+            delay: stagger(-2),
           }
         );
         return () => {};

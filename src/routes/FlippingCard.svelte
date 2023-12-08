@@ -34,6 +34,15 @@
     }
   }
 
+  // prelaod images
+  const images = dataArr.map((d) => d.img);
+  $: {
+    for (let i = 0; i < images.length; i++) {
+      const img = new Image();
+      img.src = images[i];
+    }
+  }
+
   $: flipCardClasses = `${bgColor} ${textColor} card card-compact transform-gpu max-w-md sm:max-w-lg md:max-w-xl w-full`;
 </script>
 
@@ -50,7 +59,7 @@
     {#if curData?.img}
       <img
         class="aspect-video w-[100%] object-fill rounded-lg w-80"
-        loading="lazy"
+        loading="eager"
         src={curData?.img}
         alt={curData?.img.replace(/\.[^/.]+$/, "")}
       />{/if}
