@@ -1,5 +1,6 @@
 <script>
-  import { onMount } from "svelte";
+  import Skills from "./Skills.svelte";
+
   import Intelligence from "./Intelligence.svelte";
 
   import Emotions3 from "./Emotions3.svelte";
@@ -11,6 +12,9 @@
   import FlipCard from "./FlipCard.svelte";
   import WhyDoWeNeedcopy from "./WhyDoWeNeedCopy.svelte";
   import Functions from "./Functions.svelte";
+  import Credits from "./Credits.svelte";
+  import FlippingCard from "./FlippingCard.svelte";
+  import PositiveConflicts from "./PositiveConflicts.svelte";
 </script>
 
 <Header />
@@ -26,6 +30,7 @@
 <!-- <WhyDoWeNeed /> -->
 <WhyDoWeNeedcopy />
 
-<section>
-  <h2>Развитие эмоционального интеллекта проходит через развитие нескольких навыков</h2>
-</section>
+<Skills />
+<PositiveConflicts />
+
+<Credits />

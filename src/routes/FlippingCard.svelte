@@ -1,9 +1,10 @@
 <script>
   import { animate } from "motion";
 
-  export let dataArr = [];
+  /** @type {{ p: string, img: string }} */
+  export let dataArr = []; // [{p: 'string', img: 'string'}]
 
-  export let bgColor = "bg-gradient-to-br from-secondary to-accent";
+  export let bgColor = "";
   export let textColor = "text-error-content";
 
   let flipCard;
@@ -36,7 +37,7 @@
   $: flipCardClasses = `${bgColor} ${textColor} card card-compact transform-gpu max-w-md sm:max-w-lg md:max-w-xl w-full`;
 </script>
 
-<button bind:this={flipCard} on:click={handleClick} class={flipCardClasses}>
+<button id="flipCardContainer" bind:this={flipCard} on:click={handleClick} class={flipCardClasses}>
   <div
     bind:this={frontText}
     class="card-body text-center flex justify-center"
@@ -44,16 +45,15 @@
   >
     <!-- <h2 class="card-title">Card title!</h2> -->
     <p contenteditable="false" class="text-xl">
-      {@html curData.p}
+      {@html curData?.p}
     </p>
-    <figure>
+    {#if curData?.img}
       <img
         class="aspect-video w-[100%] object-fill rounded-lg w-80"
         loading="lazy"
-        src={curData.img}
-        alt={curData.img.replace(/\.[^/.]+$/, "")}
-      />
-    </figure>
+        src={curData?.img}
+        alt={curData?.img.replace(/\.[^/.]+$/, "")}
+      />{/if}
   </div>
 </button>
 
@@ -61,5 +61,26 @@
   .card {
     transition: transform 1s;
     transform-style: preserve-3d;
+  }
+
+  #flipCardContainer {
+    /* bg-gradient-to-r from-accent via-secondary to-primary */
+    background: linear-gradient(
+      -45deg,
+      oklch(var(--p) / 0.5),
+      oklch(var(--s) / 0.5),
+      oklch(var(--a) / 0.5)
+    );
+    background-size: 400%;
+    animation: move-background 10s linear infinite alternate;
+  }
+
+  @keyframes move-background {
+    0% {
+      background-position: 0;
+    }
+    100% {
+      background-position: 100%;
+    }
   }
 </style>
