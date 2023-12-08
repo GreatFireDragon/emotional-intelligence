@@ -15,7 +15,7 @@
   // import "@fontsource-variable/jura";
   // import "@fontsource/julius-sans-one";
 
-  // export let data;
+  export let data;
   // USER'S INTERNET SPEED
   let speed = 0;
 
@@ -26,7 +26,7 @@
     if (speed) {
       console.log("User's connection is ", speed, "Mb/s");
     }
-    const waitingTime = 1;
+    const waitingTime = data.theme ? 1 : 1000;
     console.log(waitingTime * (10 / speed));
 
     setTimeout(
