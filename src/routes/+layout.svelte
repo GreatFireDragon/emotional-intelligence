@@ -21,17 +21,16 @@
 
   // LOADING
   let isLoading = true;
+  let countdownElement;
   onMount(() => {
     speed = window.navigator.connection?.downlink;
-    if (!speed) {
-      speed = 1;
-    }
+    if (!speed) speed = 1;
+    console.log(speed);
 
     let waitingTime = data.theme ? 1 : 1000;
     waitingTime = waitingTime * (10 / speed);
 
-    const countdownElement = document.querySelector(".countdown");
-    let newValue = Math.floor(waitingTime / 1000);
+    let newValue = Math.floor(waitingTime / 1000) - 1;
     const intervalUnlaod = setInterval(() => {
       newValue -= 1;
       countdownElement.style.setProperty("--value", newValue);
@@ -47,26 +46,41 @@
   let scrollY = 0;
   let windowWidth = 0;
   $: scrolled = scrollY < windowWidth / 2;
+
+  // music
+  // let audio;
+  // const playAudio = () => audio.play();
+  // const pauseAudio = () => audio.pause();
 </script>
 
 {#if isLoading}
   <main
-    class="fixed top-0 left-0 z-[100] bg-neutral flex flex-col items-center justify-center w-screen h-screen"
+    class="fixed pointer-events-none top-0 left-0 z-[100] bg-neutral flex flex-col items-center justify-center w-screen h-[100lvh]"
   >
     <Loader />
-    <span class="countdown my-5 font-mono text-8xl">
+    <span bind:this={countdownElement} class="countdown my-5 font-mono text-8xl">
       <span></span>
     </span>
   </main>
 {/if}
+
+<!-- music -->
+<!-- <audio bind:this={audio}>
+  <source src="/assets/Disco Elysium - Advesperascit.mp3" type="audio/mp3" />
+</audio> -->
+
 <BlobBG />
 
 <span
   transition:slide
-  class={"fixed z-50 top-4 left-3 transition-all duration-1000 focus:opacity-100 active:opacity-100 " +
+  class={"fixed flex items-baseline z-50 top-4 left-3 transition-all duration-1000 focus:opacity-100 active:opacity-100 " +
     (!scrolled ? "opacity-0 pointer-events-none" : "left-1/2 ")}
 >
-  <ThemeChanger />
+  <ThemeChanger {data} />
+
+  <span class="ml-10">
+    <!-- <button class="btn" on:click={playAudio}>▶</button> -->
+  </span>
 </span>
 
 <!-- PAGETABS -->

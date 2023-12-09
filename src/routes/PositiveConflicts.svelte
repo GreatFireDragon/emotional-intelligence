@@ -27,11 +27,11 @@
 <section>
   <h2>Решайте конфликты <span class="gradientText">позитивно</span>!</h2>
 
-  <div class="join join-vertical w-full glass text-base-content">
+  <div class="join join-vertical w-full px-3 sm:px-10 glass text-base-content">
     {#each data as item, index}
       <div class="collapse collapse-arrow join-item border border-base-300">
         <input type="radio" name="my-accordion-4" checked="checked" />
-        <div class="collapse-title text-base xs:text-lg">
+        <div class="collapse-title text-base xs:text-lg sm:text-2xl md:text-4xl">
           {index + 1}. {@html item.title}
         </div>
         <div class="collapse-content flex justify-center">

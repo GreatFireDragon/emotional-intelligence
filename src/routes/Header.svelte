@@ -1,9 +1,11 @@
 <header
   class="relative overflow-x-clip flex flex-col items-center justify-center h-screen select-none snap-center"
 >
-  <h1 class="sm:text-[17rem] text-[8rem] md:text-[20rem] font-display font-bold pr-[12vw]">EQ</h1>
+  <h1 class="sm:text-[17rem] text-[8rem] md:text-[20rem] font-display font-bold sm:pr-[12vw]">
+    EQ
+  </h1>
 
-  <h2 class="text-3xl text-center sm:text-6xl md:text-7xl font-jura">
+  <h2 class="text-3xl text-center sm:text-6xl md:text-7xl font-jura -mt-6 xs:mt-0">
     <span class="gradientText">Эмоциональный</span> интеллект
   </h2>
 
@@ -12,7 +14,7 @@
       src="assets/prince-big/planet-boy-fox.png"
       alt=""
       loading="eager"
-      class="absolute max-w-xs sm:msx-w-lg xs:-bottom-[20svh] -bottom-[25svh] z-[3] -translate-x-1/2 left-1/2"
+      class="absolute max-w-xs sm:max-w-md -bottom-[25svh] z-[3] -translate-x-1/2 left-1/2"
     />
   </div>
 </header>

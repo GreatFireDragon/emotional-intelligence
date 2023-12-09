@@ -13,7 +13,7 @@
 </script>
 
 <section>
-  <h2>Emotions</h2>
+  <h2 class="gradientText">Эмоции</h2>
 
   <h3 class="">
     Каждый человек на свете испытывает эмоции. Эмоции возникают в ответ на <span

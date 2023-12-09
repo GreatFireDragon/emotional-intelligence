@@ -1,6 +1,7 @@
 <script>
   import { animate, inView } from "motion";
   import { onMount } from "svelte";
+  import { fade, slide, draw, fly } from "svelte/transition";
 
   /** @type {{ p: string, img: string }} */
   export let dataArr = []; // [{p: 'string', img: 'string'}]
@@ -38,7 +39,7 @@
     animate(
       flipCard,
       {
-        opacity: [0.3, 0, 1],
+        opacity: [1, 1],
       },
       { duration: 1 }
     );
@@ -52,33 +53,12 @@
     }
   }
 
-  let windowHeight = 0;
-  onMount(() => {
-    inView(
-      "#flipCardContainer",
-      () => {
-        dataArr?.map((d) => {
-          if (!d?.img) return;
-          const img = new Image();
-          img.src = d?.img;
-
-          img.addEventListener("load", function () {
-            console.log("Image loaded successfully");
-          });
-        });
-      },
-      { margin: `${windowHeight * 3}px 0px  0px 0px` }
-    );
-  });
-
-  $: flipCardClasses = `${bgColor} ${textColor} card card-compact transform-gpu max-w-md sm:max-w-lg md:max-w-xl w-full`;
+  $: flipCardClasses = `${bgColor} ${textColor} card card-compact drop-shadow-lg	my-3 sm:my-10 transform-gpu max-w-md sm:max-w-lg md:max-w-xl w-full`;
 </script>
-
-<svelte:window bind:innerHeight={windowHeight} />
 
 <div
   bind:this={tooltip}
-  class="tooltip tooltip-primary tooltip-open tooltip-top"
+  class="tooltip tooltip-primary tooltip-open tooltip-top px-3"
   data-tip="нажми на меня"
 >
   <button
@@ -86,28 +66,36 @@
     bind:this={flipCard}
     on:click={handleClick}
     class={flipCardClasses}
+    style={`background-color: oklch(var(--b3));
+background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8' viewBox='0 0 8 8'%3E%3Cg fill='%239C92AC' fill-opacity='0.8'%3E%3Cpath fill-rule='evenodd' d='M0 0h4v4H0V0zm4 4h4v4H4V4z'/%3E%3C/g%3E%3C/svg%3E");`}
   >
     <div
       bind:this={frontText}
-      class="card-body text-center flex justify-center"
+      class="card-body text-base-content text-center flex justify-center items-center"
       style="transform: rotateY(0deg);"
     >
-      <!-- <h2 class="card-title">Card title!</h2> -->
-      <p contenteditable="false" class="text-xl">
-        {@html curData?.p}
-      </p>
+      {#if curData?.h}
+        <h2 class="card-title">
+          {@html curData?.h}
+        </h2>
+      {/if}
 
+      {#if curData?.p}
+        <p contenteditable="false" class="text-xl">
+          {@html curData?.p}
+        </p>
+      {/if}
       {#if curData?.img}
         <img
-          class="aspect-video w-[100%] object-fill rounded-lg w-80"
+          class="aspect-video w-[100%] object-fill rounded-b-lg w-80"
           loading="lazy"
-          src={curData?.img}
-          alt={curData?.img.replace(/\.[^/.]+$/, "")}
+          src={curData.img}
+          alt={curData.img.replace(/\.[^/.]+$/, "")}
         />
       {/if}
 
       {#if curData?.svg}
-        <svg width="100%" height="100%" viewBox="0 0 55 55" fill="oklch(var(--n))">
+        <svg width="70%" height="100%" viewBox="0 0 55 55" fill="oklch(var(--bc))">
           {@html curData?.svg}
         </svg>
       {/if}
@@ -121,17 +109,23 @@
     transform-style: preserve-3d;
   }
 
-  #flipCardContainer {
-    /* bg-gradient-to-r from-accent via-secondary to-primary */
-    background: linear-gradient(
+  .card-body {
+    padding: 0;
+    margin: 16px;
+
+    background-color: oklch(var(--b1));
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cg fill='%239C92AC' fill-opacity='0.1'%3E%3Cpolygon fill-rule='evenodd' points='8 4 12 6 8 8 6 12 4 8 0 6 4 4 6 0 8 4'/%3E%3C/g%3E%3C/svg%3E");
+  }
+
+  /* bg-gradient-to-r from-accent via-secondary to-primary */
+  /* background: linear-gradient(
       -45deg,
       oklch(var(--p) / 0.5),
       oklch(var(--s) / 0.5),
       oklch(var(--a) / 0.5)
     );
     background-size: 400%;
-    animation: move-background 10s linear infinite alternate;
-  }
+    animation: move-background 10s linear infinite alternate; */
 
   @keyframes move-background {
     0% {

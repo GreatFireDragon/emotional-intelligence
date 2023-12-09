@@ -14,7 +14,7 @@
   h4,
   h5,
   h6 {
-    @apply px-3 font-display font-black;
+    @apply px-3 sm:px-10 md:px-28 font-display font-black;
   }
 
   header {
@@ -37,7 +37,7 @@
   .gradientText {
     @apply bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text stroke-primary-content text-transparent bg-[length:300%];
     animation: move-background 3s linear infinite alternate;
-    -webkit-text-stroke: 0.2px oklch(var(--p));
+    -webkit-text-stroke: 0.1px oklch(var(--p));
 
     /* text-stroke: 1px black; */
     /* text-shadow: 0 0 1rem oklch(var(--a)); */

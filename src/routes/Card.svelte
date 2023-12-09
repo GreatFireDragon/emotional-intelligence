@@ -1,5 +1,6 @@
 <script>
   import FlippingCard from "./FlippingCard.svelte";
+  import { onMount } from "svelte";
 
   const dataArr = [
     {

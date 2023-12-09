@@ -18,7 +18,7 @@
           {
             style: `left: ${Math.random().toFixed(3) * 80}vw;`,
             x: [windowWidth, -windowWidth],
-            y: [-50, windowHeight],
+            y: [0, windowHeight],
             rotate: [0, 360],
             filter: ["hue-rotate(0deg) contrast(70%)", "hue-rotate(720deg) contrast(100%)"],
           },
@@ -52,7 +52,7 @@
     <img
       on:click={handleStarClick}
       id="star"
-      class="absolute max-w-lg z-[20] drop-shadow-2xl cursor-pointer select-none"
+      class="absolute max-w-lg z-[20] top-[100px] drop-shadow-2xl cursor-pointer select-none"
       style={`left: ${Math.random().toFixed(3) * 80}vw;`}
       alt=""
       src="assets/prince-small/star1.png"
