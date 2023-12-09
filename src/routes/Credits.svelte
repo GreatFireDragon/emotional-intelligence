@@ -46,7 +46,6 @@
       bind:this={moon}
       src="assets/moon-realistic2.png"
       alt=""
-      loading="lazy"
       class="absolute max-w-xl top-[10svh] -right-[120vw] z-[3] blur-[2px] drop-shadow-lg"
     />
     <img

@@ -61,9 +61,13 @@
           if (!d?.img) return;
           const img = new Image();
           img.src = d?.img;
+
+          img.addEventListener("load", function () {
+            console.log("Image loaded successfully");
+          });
         });
       },
-      { margin: `${windowHeight}px 0px  0px 0px` }
+      { margin: `${windowHeight * 3}px 0px  0px 0px` }
     );
   });
 

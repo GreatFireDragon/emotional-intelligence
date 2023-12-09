@@ -5,7 +5,6 @@
   import Header from "./Header.svelte";
   import Card from "./Card.svelte";
   import WhyDoWeNeed from "./WhyDoWeNeed.svelte";
-  import FlipCard from "./FlipCard.svelte";
   import WhyDoWeNeedcopy from "./WhyDoWeNeedCopy.svelte";
   import Functions from "./Functions.svelte";
   import Credits from "./Credits.svelte";

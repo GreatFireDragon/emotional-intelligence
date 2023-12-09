@@ -23,18 +23,24 @@
   let isLoading = true;
   onMount(() => {
     speed = window.navigator.connection?.downlink;
-    if (speed) {
-      console.log("User's connection is ", speed, "Mb/s");
+    if (!speed) {
+      speed = 1;
     }
-    const waitingTime = data.theme ? 1 : 1000;
-    console.log(waitingTime * (10 / speed));
 
-    setTimeout(
-      () => {
-        isLoading = false;
-      },
-      waitingTime * (10 / speed)
-    );
+    let waitingTime = data.theme ? 1 : 1000;
+    waitingTime = waitingTime * (10 / speed);
+
+    const countdownElement = document.querySelector(".countdown");
+    let newValue = Math.floor(waitingTime / 1000);
+    const intervalUnlaod = setInterval(() => {
+      newValue -= 1;
+      countdownElement.style.setProperty("--value", newValue);
+    }, 1000);
+
+    setTimeout(() => {
+      isLoading = false;
+      clearInterval(intervalUnlaod);
+    }, waitingTime);
   });
 
   // Hide header elements on scroll
@@ -45,9 +51,12 @@
 
 {#if isLoading}
   <main
-    class="fixed top-0 left-0 z-[100] bg-neutral flex items-center justify-center w-screen h-screen"
+    class="fixed top-0 left-0 z-[100] bg-neutral flex flex-col items-center justify-center w-screen h-screen"
   >
     <Loader />
+    <span class="countdown my-5 font-mono text-8xl">
+      <span></span>
+    </span>
   </main>
 {/if}
 <BlobBG />
