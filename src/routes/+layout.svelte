@@ -44,11 +44,13 @@
 </script>
 
 {#if isLoading}
-  <BlobBG />
-  <main class="fixed top-0 left-0 z-[100] flex items-center justify-center w-screen h-screen">
+  <main
+    class="fixed top-0 left-0 z-[100] bg-neutral flex items-center justify-center w-screen h-screen"
+  >
     <Loader />
   </main>
 {/if}
+<BlobBG />
 
 <span
   transition:slide
