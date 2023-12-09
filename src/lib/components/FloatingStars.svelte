@@ -18,7 +18,7 @@
           {
             style: `left: ${Math.random().toFixed(3) * 80}vw;`,
             x: [windowWidth, -windowWidth],
-            y: [0, windowHeight],
+            y: [-50, windowHeight],
             rotate: [0, 360],
             filter: ["hue-rotate(0deg) contrast(70%)", "hue-rotate(720deg) contrast(100%)"],
           },

@@ -36,7 +36,7 @@
 
 <svelte:window bind:innerWidth={windowW} />
 
-<section class="overflow-hidden">
+<section>
   <h2><span class="gradientText">Александра Романова</span></h2>
   <p class="text-center">Проект <span class="gradientText">"Эмоциональный интеллект"</span></p>
   <h2 class="gradientText">2024</h2>

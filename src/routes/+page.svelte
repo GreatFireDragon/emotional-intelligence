@@ -13,6 +13,7 @@
   import PositiveConflicts from "./PositiveConflicts.svelte";
   import Skills from "./Skills.svelte";
   import Intelligence from "./Intelligence.svelte";
+  import ConsistsOf from "./ConsistsOf.svelte";
 </script>
 
 <Header />
@@ -27,6 +28,8 @@
 <Intelligence />
 <!-- <WhyDoWeNeed /> -->
 <WhyDoWeNeedcopy />
+
+<ConsistsOf />
 
 <Skills />
 <PositiveConflicts />

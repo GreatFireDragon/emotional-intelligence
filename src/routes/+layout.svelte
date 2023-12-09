@@ -44,35 +44,36 @@
 </script>
 
 {#if isLoading}
-  <main class="fixed top-0 left-0 z-40 flex items-center justify-center w-screen h-screen">
+  <main
+    class="fixed top-0 left-0 z-[100] bg-primary-content flex items-center justify-center w-screen h-screen"
+  >
     <Loader />
   </main>
-{:else}
-  <BlobBG />
+{/if}
+<BlobBG />
 
-  <span
-    transition:slide
-    class={"fixed z-50 top-4 left-3 transition-all duration-1000 focus:opacity-100 active:opacity-100 " +
-      (!scrolled ? "opacity-0 pointer-events-none" : "left-1/2 ")}
-  >
-    <ThemeChanger />
-  </span>
+<span
+  transition:slide
+  class={"fixed z-50 top-4 left-3 transition-all duration-1000 focus:opacity-100 active:opacity-100 " +
+    (!scrolled ? "opacity-0 pointer-events-none" : "left-1/2 ")}
+>
+  <ThemeChanger />
+</span>
 
-  <!-- PAGETABS -->
-  <!-- {#if scrollY < windowWidth / 2}
+<!-- PAGETABS -->
+<!-- {#if scrollY < windowWidth / 2}
   <span transition:slide class={"fixed z-50 top-4 right-3  "}>
     <PagesTabs />
   </span>
 {/if} -->
 
-  <div class={"transition-all duration-1000 fixed top-2 " + (!scrolled ? "left-3" : "left-32 ")}>
-    <!-- <ProgressCircle /> -->
-    <ProgressBar />
-  </div>
+<div class={"transition-all duration-1000 fixed top-2 " + (!scrolled ? "left-3" : "left-32 ")}>
+  <!-- <ProgressCircle /> -->
+  <ProgressBar />
+</div>
 
-  <ScrollButtons />
+<ScrollButtons />
 
-  <slot />
-{/if}
+<slot />
 
 <svelte:window bind:scrollY bind:innerWidth={windowWidth} />
