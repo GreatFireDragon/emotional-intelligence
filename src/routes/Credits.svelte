@@ -67,7 +67,7 @@
       bind:this={fox}
       src="assets/prince-small/fox-running.png"
       alt=""
-      class="absolute max-w-xl z-[3] rotate-6 -right-[100vw] bottom-[30svh] drop-shadow-lg"
+      class="absolute max-w-xl z-30 rotate-6 -right-[50vw] bottom-[30svh] drop-shadow-lg"
     />
   </div>
   <!-- <img
