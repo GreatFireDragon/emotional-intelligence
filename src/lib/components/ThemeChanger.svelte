@@ -26,7 +26,7 @@
 
 <div
   bind:this={tooltip}
-  class="tooltip tooltip-primary tooltip-open tooltip-right px-3"
+  class="px-3 tooltip tooltip-primary tooltip-open tooltip-bottom"
   data-tip="Сменить тему"
 >
   <div class="dropdown">

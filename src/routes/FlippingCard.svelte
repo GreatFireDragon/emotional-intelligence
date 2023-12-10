@@ -58,8 +58,8 @@
 
 <div
   bind:this={tooltip}
-  class="tooltip tooltip-primary tooltip-open tooltip-top px-3"
-  data-tip="нажми на меня"
+  class="px-3 tooltip tooltip-primary tooltip-open tooltip-top"
+  data-tip="нажми на картинку"
 >
   <button
     id="flipCardContainer"
@@ -71,7 +71,7 @@ background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/s
   >
     <div
       bind:this={frontText}
-      class="card-body text-base-content text-center flex justify-center items-center"
+      class="flex items-center justify-center text-center card-body text-base-content"
       style="transform: rotateY(0deg);"
     >
       {#if curData?.h}

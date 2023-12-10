@@ -8,7 +8,7 @@
   let moon;
   let fox;
   onMount(() => {
-    inView(moon.parentNode, ({ target }) => {
+    inView(fox.parentNode, ({ target }) => {
       animate(
         fox,
         { x: [windowW, -windowW * 1.5] },
@@ -40,12 +40,12 @@
 
 <svelte:window bind:innerWidth={windowW} />
 
-<section class="overflow-hidden">
+<section class="overflow-y-visible">
   <!-- <p class="text-center -mb-3 text-[0.5rem]">
     Государственное бюджетное общеобразовательное учреждение средняя школа № 222 с углубленным
     изучением немецкого языка "ПЕТРИШУЛЕ" Центрального района Санкт-Петербурга
   </p> -->
-  <p class="text-center -mb-3">Продукт для проекта по теме:</p>
+  <p class="-mb-3 text-center">Продукт для проекта по теме:</p>
   <h2 class="text-center gradientText">"Эмоциональный интеллект"</h2>
   <p class="text-center">Ученица <span class="gradientText">10 "Б"</span> класса</p>
   <p class="text-center">
@@ -53,17 +53,16 @@
   </p>
   <p class="text-center">
     Руководители: учитель биологии <span class="gradientText">Кононенко Ангелина Алексеевна</span> и
-    учитель информатики <span class="gradientText">Леонидов Иванович Леонидов</span> класса
+    учитель информатики <span class="gradientText">Леонид Иванович Леонидов</span> класса
   </p>
   <h2 class="gradientText">2024</h2>
 
-  <img
-    src="assets/prince-small/boy-front.png"
-    alt=""
-    class="max-w-xs bottom z-[5] drop-shadow-lg"
-  />
-
   <div class="relative pointer-events-none text-8xl">
+    <img
+      src="assets/prince-small/boy-front.png"
+      alt=""
+      class="max-w-xs drop-shadow-lg bottom-[30svh]"
+    />
     <img
       bind:this={fox}
       src="assets/prince-small/fox-running.png"
@@ -71,12 +70,12 @@
       class="absolute max-w-xl z-[3] rotate-6 -right-[100vw] bottom-[30svh] drop-shadow-lg"
     />
   </div>
-  <img
+  <!-- <img
     bind:this={moon}
     src="assets/moon-realistic2.png"
     alt=""
     class="absolute max-w-xl -bottom-[50svh] xs:-bottom-[40svh] -right-[40vw] sm:right-0 z-[3] blur-[2px] drop-shadow-lg"
-  />
+  /> -->
 
   <FloatingStars />
 </section>

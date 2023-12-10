@@ -12,6 +12,8 @@
 <style>
   .progress {
     position: fixed;
+
+    z-index: 100;
     left: 0;
     right: 0;
     height: 5px;

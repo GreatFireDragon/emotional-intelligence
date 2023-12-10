@@ -58,7 +58,7 @@
     class="fixed pointer-events-none top-0 left-0 z-[100] bg-neutral flex flex-col items-center justify-center w-screen h-[100lvh]"
   >
     <Loader />
-    <span bind:this={countdownElement} class="countdown my-5 font-mono text-8xl">
+    <span bind:this={countdownElement} class="my-5 font-mono countdown text-8xl">
       <span></span>
     </span>
   </main>
@@ -90,12 +90,12 @@
   </span>
 {/if} -->
 
-<div class={"transition-all duration-1000 fixed top-2 " + (!scrolled ? "left-3" : "left-32 ")}>
-  <!-- <ProgressCircle /> -->
-  <ProgressBar />
-</div>
+<!-- <ProgressCircle /> -->
+<ProgressBar />
 
-<ScrollButtons />
+<span class={!scrolled ? "opacity-50 z-50" : " "}>
+  <ScrollButtons />
+</span>
 
 <slot />
 

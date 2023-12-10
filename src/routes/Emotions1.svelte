@@ -6,7 +6,7 @@
   let emojis;
 
   onMount(() => {
-    scroll(animate(emojis, { y: [-300, 300] }), {
+    scroll(animate(emojis.querySelectorAll("span"), { y: [-300, 300] }), {
       target: emojis,
     });
   });

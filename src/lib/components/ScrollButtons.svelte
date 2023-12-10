@@ -60,31 +60,33 @@
 
 <div
   id="navigationTip"
-  class="fixed duration-800 transition-opacity pointer-events-none tooltip tooltip-primary tooltip-left tooltip-open top-16 right-16 z-50"
+  class="fixed z-50 transition-opacity pointer-events-none duration-800 tooltip tooltip-primary tooltip-left tooltip-open top-16 right-16"
   data-tip="Навигация"
 />
 <div
   id="upTip"
-  class="fixed duration-800 transition-opacity pointer-events-none tooltip tooltip-primary tooltip-left tooltip-open top-[70svh] right-24 z-50"
+  class="fixed z-50 transition-opacity pointer-events-none duration-800 tooltip tooltip-primary
+tooltip-left tooltip-open top-2/3 translate-y-[30px] right-24"
   data-tip="Вверх ↑"
 />
 <div
   id="downTip"
-  class="fixed duration-800 transition-opacity pointer-events-none tooltip tooltip-primary tooltip-left tooltip-open top-[77svh] right-24 z-50"
+  class="fixed z-50 transition-opacity pointer-events-none duration-800 tooltip tooltip-primary
+tooltip-left tooltip-open top-2/3 translate-y-[70px] right-24"
   data-tip="Вниз ↓"
 />
 
 <div
-  class="fixed z-50 transition-all duration-500 join join-vertical top-10 right-3 opacity-10 hover:opacity-50"
+  class="fixed z-50 transition-all duration-500 join join-vertical top-10 right-3 hover:opacity-100"
 >
-  <button class="btn join-item" on:click={scrollUpDown}>👆</button>
+  <button class="btn join-item btn-primary" on:click={scrollUpDown}>👆</button>
 </div>
 
 <div
-  class="fixed z-50 transition-all duration-500 join join-vertical top-2/3 right-3 opacity-10 hover:opacity-50"
+  class="fixed z-50 transition-all duration-500 join join-vertical top-2/3 right-3 hover:opacity-100"
 >
-  <button class="btn join-item" on:click={scrollUpDown}>Up</button>
-  <button class="btn join-item" on:click={scrollUpDown}>Down</button>
+  <button class="btn join-item btn-primary" on:click={scrollUpDown}>Up</button>
+  <button class="btn join-item btn-primary" on:click={scrollUpDown}>Down</button>
 </div>
 
 <svelte:window bind:scrollY bind:outerHeight={windowHeight} />
