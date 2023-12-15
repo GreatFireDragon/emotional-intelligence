@@ -26,7 +26,7 @@ const themes = [
   "acid",
   "lemonade",
   "night",
-  "coffee",
+  // "coffee",
   "winter",
   "dim",
   "nord",
