@@ -52,14 +52,15 @@
     Романовой <span class="gradientText">Александры</span> Станиславовны
   </p>
   <p class="text-center">
-    Руководители: учитель биологии <span class="gradientText">Кононенко Ангелина Алексеевна</span> и
-    учитель информатики <span class="gradientText">Леонид Иванович Леонидов</span> класса
+    Руководители: учитель биологии <br /><span class="gradientText">Кононенко Ангелина Алексеевна</span><br /> и
+    учитель информатики<br /> <span class="gradientText">Артем Иванович Леонидов</span><br /> 10 "Б" класса
   </p>
+
   <h2 class="gradientText">2024</h2>
 
   <div class="relative pointer-events-none text-8xl">
     <img
-      src="assets/prince-small/boy-front.png"
+      src="assets/prince-small/boy-front.png" 
       alt=""
       class="max-w-xs drop-shadow-lg bottom-[30svh]"
     />

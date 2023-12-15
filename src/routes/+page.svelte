@@ -22,6 +22,7 @@
 <Emotions3 />
 <Functions />
 
+<!-- здесь тест -->
 <Card />
 
 <Intelligence />
